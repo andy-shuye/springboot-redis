@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>列表</title>
+    <link th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.min.css}" rel="stylesheet">
+    <style>
+        #top{
+            width: 700px;
+        }
+    </style>
+</head>
+<body style="margin: auto">
+    <div class="container" id="top">
+        <div class="row">
+            <table class="table table-striped" style="text-align: center">
+                <thead>
+                    <th>姓名</th>
+                    <th>年龄</th>
+                    <th>城市</th>
+                </thead>
+                <tbody>
+                    <tr th:each="user:${pageResult.list}">
+                        <td th:text="${user.name}"></td>
+                        <td th:text="${user.age}"></td>
+                        <td th:text="${user.address}"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="row" style="text-align: center">
+            <span>总条数：</span>
+            <button class="btn btn-sm" th:text="${pageResult.total}"></button>
+            <button class="btn btn-sm" th:class="${pageResult.page==1}?'disabled btn btn-sm':'btn btn-sm'"><a href="/list" th:href="@{'/list?pageNum=' + ${pageResult.page - 1}}">《</a></button>
+            <button class="btn btn-sm" th:text="${pageResult.page}">123</button>
+            <button class="btn btn-sm" th:class="${pageResult.page==pageResult.pageTotal}?'disabled btn btn-sm':'btn btn-sm'"><a href="/list" th:href="@{'/list?pageNum=' + ${pageResult.page + 1}}">》</a></button>
+            <span>总页数：</span>
+            <button class="btn btn-sm" th:text="${pageResult.pageTotal}"></button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="asserts/js/jquery-3.2.1.slim.min.js" th:src="@{/webjars/jquery/3.3.1/jquery.js}"></script>
+<script type="text/javascript" src="asserts/js/bootstrap.min.js" th:src="@{/webjars/bootstrap/4.0.0/js/bootstrap.js}"></script>
+</html>
