@@ -19,18 +19,11 @@ public class UserServiceImpl implements UserService {
         PageHelper.startPage(pageNum, pageSize);
         List<User> users = userMapper.selectAll();
         PageInfo<User> pageInfo = new PageInfo<>(users);
-        //创建结果集对象
         PageResult<User> result = new PageResult<>();
-        //将结果封装到结果集对象中
-        //当前页
         result.setPage(pageNum);
-        //每页的数量
         result.setPageSize(pageInfo.getPageSize());
-        //总页数
         result.setPageTotal(pageInfo.getPages());
-        //总条数
         result.setTotal(pageInfo.getTotal());
-        //结果集
         result.setList(pageInfo.getList());
         return result;
     }

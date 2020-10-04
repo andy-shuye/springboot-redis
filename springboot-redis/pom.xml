@@ -15,8 +15,6 @@
 
     <properties>
         <thymeleaf.version>3.0.9.RELEASE</thymeleaf.version>
-        <!-- 布局功能的支持程序  thymeleaf3主程序  layout2以上版本 -->
-        <!-- thymeleaf2   layout1-->
         <thymeleaf-layout-dialect.version>2.3.0</thymeleaf-layout-dialect.version>
     </properties>
     <dependencies>
@@ -52,7 +50,7 @@
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
-        <!-- https://mvnrepository.com/artifact/com.alibaba/fastjson -->
+
         <dependency>
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
